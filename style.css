@@ -1,0 +1,287 @@
+body {
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    /* overflow: hidden; */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body h1 {
+    color: aliceblue;
+    text-align: center;
+}
+
+.playing-card {
+    width: 140px;
+    height: 200px;
+    background-color: aliceblue;
+    border-radius: 25px;
+    transition: 1s;
+    padding: 15px;
+    margin: 5px;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-duration: 1000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes draw-card {
+    0% {
+        opacity: 0;
+        transform: translateX(250px);
+        transform-origin: 50% 50%;
+    }
+
+    15% {
+        transform: translateX(-30px) rotate(-6deg);
+    }
+
+    30% {
+        transform: translateX(15px) rotate(6deg);
+    }
+
+    45% {
+        transform: translateX(-15px) rotate(-3.6deg);
+    }
+
+    60% {
+        transform: translateX(9px) rotate(2.4deg);
+    }
+
+    75% {
+        transform: translateX(-6px) rotate(-1.2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        transform-origin: 50% 50%;
+    }
+}
+
+.playing-card p {
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+    .playing-card {
+        width: 100px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 511px) {
+    .playing-card {
+        width: 70px;
+        height: 100px;
+    }
+
+    .playing-card p {
+        font-size: 35px;
+    }
+}
+
+.playground {
+    border: solid 5px firebrick;
+    background-image: url("https://img.freepik.com/free-vector/poker-table-background-green-color_47243-1073.jpg?size=626&ext=jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #35654d;
+    border-radius: 10px;
+    width: 90vw;
+    padding: 50px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playground h5 {
+    font-size: 20px;
+    margin: 10px 0 0 0;
+    text-transform: uppercase;
+    color: white;
+}
+
+.playground #dealer-score,
+.playground #player-score {
+    color: yellowgreen;
+}
+
+#dealer,
+#player {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    margin: auto;
+}
+
+.separator {
+    width: 100%;
+    border: solid 1px rgb(184, 134, 11);
+}
+
+.controls {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.controls button {
+    width: 100px;
+    height: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.controls button:hover {
+    background-color: rgb(150, 138, 138);
+}
+
+.controls #play-again {
+    background-color: #b7860b;
+}
+
+/* Bouncing arrow */
+.arrow {
+    display: none;
+    position: absolute;
+    margin-top: -55px;
+    left: 50%;
+    width: fit-content;
+    z-index: 0;
+}
+
+.arrow img {
+    width: 10%;
+}
+
+.bounce {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {
+    from {
+        top: 1em;
+    }
+
+    to {
+        top: 2em;
+    }
+}
+
+/* modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto auto auto;
+    padding: 30px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    text-align: center;
+    width: 30%;
+    animation-duration: 1000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+}
+
+#winner {
+    color: #000;
+}
+
+#blackjack {
+    display: none;
+    color: rgb(14, 116, 14);
+}
+
+@keyframes modal-board {
+    0% {
+        opacity: 0;
+        transform: translateY(-250px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Confetti */
+.confetti {
+    opacity: 0;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    transition: 500ms ease;
+    animation: confettiRain 5s infinite;
+}
+
+#confetti-wrapper {
+    overflow: hidden !important;
+}
+
+@keyframes confettiRain {
+    0% {
+        opacity: 1;
+        margin-top: -100vh;
+        margin-left: -200px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 80vh;
+        margin-left: 200px;
+    }
+}

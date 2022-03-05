@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack</title>
+    <link rel="icon" href="https://cdn.pixabay.com/photo/2013/04/01/08/26/cards-98382__340.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>BlackJack</h1>
+    <div class="playground">
+        <h5>DEALER</h5>
+        <h5 id="dealer-score">0</h5>
+        <div id="dealer">
+        </div>
+        <hr class="separator">
+
+        <div id="player">
+        </div>
+        <h5>YOU</h5>
+        <h5 id="player-score">0</h5>
+    </div>
+    
+    <div class="controls">
+        <div class="arrow bounce">
+            <img src="https://cdn.pixabay.com/photo/2013/07/12/15/30/arrow-149964__340.png" />
+        </div>
+        <button id="hit-btn">HIT</button>
+        <button id="stay-btn">STAND</button>
+        <button id="play-again">PLAY AGAIN</button>
+
+    </div>
+
+    <div id="modal-popup" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1><span id="winner">Winner</span></h1>
+            <h4 id="blackjack">BlackJack</h4>
+            <p id="modal-text">Some text in the Modal..</p>
+        </div>
+    </div>
+    <div id="confetti-wrapper">
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
