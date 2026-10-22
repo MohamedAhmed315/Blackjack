@@ -1,4 +1,4 @@
 # Blackjack
 A simple blackjack game
 
-https://blackjack-js-game.netlify.app/
+https://blackjack-alpha-five.vercel.app/
